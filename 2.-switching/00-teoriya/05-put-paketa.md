@@ -3,11 +3,11 @@
 Теперь проследим нелёгкий путь кадра.  
 Состояние покоя сети — утопия.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8b6_80aa920a_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8b6_80aa920a_XL.jpg)
 
 Вы пытаетесь пропинговать, например, адрес соседнего компьютера командой **ping 192.168.1.118**. Данные этого приложения показаны фиолетовым параллелепипедом.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8b7_63168611_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8b7_63168611_XL.jpg)
 
 За это отвечает протокол [ICMP](http://ru.wikipedia.org/wiki/ICMP). В него инкапсулируется информация от приложения — это означает, что к данным 5-го уровня добавляется заголовок со служебной информацией 4-го уровня.
 
@@ -15,7 +15,7 @@
 
 Его данные упаковываются \(инкапсулируются\) в IP-пакеты, где в заголовке указан IP-адрес получателя \(192.168.1.118\) и IP-адрес отправителя — логические адреса.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8b9_dea96f7f_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8b9_dea96f7f_XL.jpg)
 
 А затем всё это инкапсулируется в Ethernet-кадры с MAC-адресами отправителя и получателя — физическими адресами.
 
@@ -25,44 +25,44 @@
 
 На самом деле, нет ничего проще: запускаете какой-нибудь анализатор трафика, например, замечательный [Wireshark](http://www.wireshark.org/) и [Ethereal](http://www.ethereal.com), на своём компьютере и пингуете другой хост. Вот такую картину вы сможете лицезреть:
 
-![Dump](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7fef5_db1c92f4_XL.jpg)
+![Dump](https://dan4i4ek.info/src/0_7fef5_db1c92f4_XL.jpg)
 
 Вы это можете сделать прямо сейчас, читая эти строки, просто установив и запустив анализатор трафика.
 
 В последнюю очередь сетевая карта вашего компьютера дробит фрейм на биты и отправляет их в кабель.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8bd_3196c517_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8bd_3196c517_XL.jpg)
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8be_c8f21164_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8be_c8f21164_XL.jpg)
 
 Коммутатор из поступивших битов собирает первоначальный кадр
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8bb_96e336_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8bb_96e336_XL.jpg)
 
 Далее начинается интеллектуальный труд: из заголовка извлекается адрес получателя, перетрясается таблица MAC-адресов на предмет совпадения и, как только оное найдено, кадр без изменений отправляется в указанный порт. Если же адреса пока ещё нет или кадр пришёл широковещательный, то он направляется на все порты, кроме того, откуда пришёл.
 
 Если адреса отправителя в таблице до сих пор не было, то в этот момент коммутатор добавит его.  
 Естественно, кадр опять передаётся в виде битов — это закон электроники, и вы должны просто всегда иметь это в виду.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8be_c8f21164_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8be_c8f21164_XL.jpg)
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8bf_7b91387c_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8bf_7b91387c_XL.jpg)
 
 Конечный хост, получив поток битов, собирает из них кадр, ещё только предполагая, что он предназначается ему.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8bc_6c8d9e6d_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8bc_6c8d9e6d_XL.jpg)
 
 Далее он сравнивает MAC-адрес получателя со своим и, если они совпадают, то заголовок второго уровня отбрасывается, а IP-данные передаются на обработку вышестоящему протоколу. Если адреса не совпадают, то кадр отбрасывается вместе со всем содержимым.
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8c1_6a604599_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8c1_6a604599_XL.jpg)
 
 Далее сравниваются IP-адрес получателя и этого устройства. Если совпадают, то заголовок сетевого уровня отбрасывается, и данные передаются транспортному уровню \(ICMP\)
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8c2_64b9d1f_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8c2_64b9d1f_XL.jpg)
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8c3_643a2181_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8c3_643a2181_XL.jpg)
 
-![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f8c4_ecb92dd2_XL.jpg)
+![](https://dan4i4ek.info/src/0_7f8c4_ecb92dd2_XL.jpg)
 
 Конечный хост обработал ICMP-запрос \(echo-request\) и готов послать ICMP-ответ \(echo-reply\) вашему компьютеру с адресом 192.168.1.131 и далее пункты 1-3 повторяются уже для нового кадра
 

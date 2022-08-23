@@ -4,7 +4,7 @@
 
 Будет у нас такая сеть:
 
-![sdsm net for linkmeup](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7fef6_e38b40e0_XL.jpg)
+![sdsm net for linkmeup](https://dan4i4ek.info/src/0_7fef6_e38b40e0_XL.jpg)
 
 Вспомним, как мы её планировали:
 

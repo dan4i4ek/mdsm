@@ -1,6 +1,6 @@
 # Задача 7
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача №7**](https://linkmeup.ru/blog/61.html)
+[![](https://dan4i4ek.info/src/61.html)
 
 Схема: Общая схема сети
 

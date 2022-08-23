@@ -1,6 +1,6 @@
 # Задача 4
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача №4**](https://linkmeup.ru/blog/44.html)
+[![](https://dan4i4ek.info/src/44.html)
 
 Схема: «GRE\_over\_IPSec»
 

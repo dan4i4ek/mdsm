@@ -23,7 +23,7 @@
 2. Linkmeup.ru для ПТОшников  
 3. яндекс \(yandex.ru\)
 
-![](http://img-fotki.yandex.ru/get/5301/83739833.1b/0_903a7_8e37d3ea_XL.jpg)
+![](https://dan4i4ek.info/src/0_903a7_8e37d3ea_XL.jpg)
 
 Для такого подключения мы поднимем ещё один влан на msk-arbat-gw1. Его номер, разумеется, согласуется с провайдером. Пусть это будет VLAN 6  
 Предположим, провайдер предоставляет нам **подсеть 198.51.100.0/28**. Первые два адреса используются для организации линка \(198.51.100.1 и 198.51.100.2\), а оставшиеся мы используем, как пул для NAT’a. Впрочем, никто совершенно нам не мешает использовать и адрес 198.51.100.2 для пула. Так и сделаем: **пул: 198.51.100.2-198.51.100.14**  
@@ -149,35 +149,35 @@ msk-arbat-gw1(config-subif)# ip nat outside
 Это позволит маршрутизатору понять откуда ждать пакеты, которые нужно будет обработать и куда их потом слать.
 
 Чтобы сервера в интернете были доступны по доменному имени, нам бы неплохо было обзавестись DNS-сервером в нашей сети:  
-![](http://img-fotki.yandex.ru/get/5302/83739833.1b/0_903ae_478226c1_XL.jpg)  
-![](http://img-fotki.yandex.ru/get/5700/83739833.1b/0_90390_1f47a02a_XL.jpg)
+![](https://dan4i4ek.info/src/0_903ae_478226c1_XL.jpg)  
+![](https://dan4i4ek.info/src/0_90390_1f47a02a_XL.jpg)
 
 Естественно его, нужно прописать на тех устройствах, с которых будем проверять доступ:  
-![](http://img-fotki.yandex.ru/get/6314/83739833.1b/0_90391_e3335c6_XL.jpg)
+![](https://dan4i4ek.info/src/0_90391_e3335c6_XL.jpg)
 
 Show must go on!
 
 С компьютера админа доступно всё:  
-![](http://img-fotki.yandex.ru/get/5800/83739833.1b/0_9039a_559bac1b_XL.jpg)
+![](https://dan4i4ek.info/src/0_9039a_559bac1b_XL.jpg)
 
 Из сети ПТО есть доступ только на сайт linkmeup.ru по 80-му порту \(HTTP\):  
-![](http://img-fotki.yandex.ru/get/6114/83739833.1b/0_9039b_ab3c6e8a_XL.jpg)  
-![](http://img-fotki.yandex.ru/get/5300/83739833.1b/0_9039c_279b90db_XL.jpg)  
-![](http://img-fotki.yandex.ru/get/5301/83739833.1b/0_9039d_60a2f35c_XL.jpg)
+![](https://dan4i4ek.info/src/0_9039b_ab3c6e8a_XL.jpg)  
+![](https://dan4i4ek.info/src/0_9039c_279b90db_XL.jpg)  
+![](https://dan4i4ek.info/src/0_9039d_60a2f35c_XL.jpg)
 
 В сети ФЭО в мир выходит только 4.123 \(финдиректор\)  
-![](http://img-fotki.yandex.ru/get/5700/83739833.1b/0_9039e_15604104_XL.jpg)  
-![](http://img-fotki.yandex.ru/get/5301/83739833.1b/0_9039f_c03fd0d9_XL.jpg)  
-![](http://img-fotki.yandex.ru/get/5406/83739833.1b/0_903a0_7c1db041_XL.jpg)
+![](https://dan4i4ek.info/src/0_9039e_15604104_XL.jpg)  
+![](https://dan4i4ek.info/src/0_9039f_c03fd0d9_XL.jpg)  
+![](https://dan4i4ek.info/src/0_903a0_7c1db041_XL.jpg)
 
 В бухгалтерии работают только сайты клиент-банков. Но, поскольку разрешение дано полностью на протокол IP, то их можно и пинговать:  
-![](http://img-fotki.yandex.ru/get/5700/83739833.1b/0_903a1_4f3df8c_XL.jpg)  
-![](http://img-fotki.yandex.ru/get/5800/83739833.1b/0_903a2_aa08b4ed_XL.jpg)
+![](https://dan4i4ek.info/src/0_903a1_4f3df8c_XL.jpg)  
+![](https://dan4i4ek.info/src/0_903a2_aa08b4ed_XL.jpg)
 
 ## 7\) Cервера
 
 Тут нам нужно настроить проброс портов, чтобы к ним можно было обращаться из Интернета:  
-![](http://img-fotki.yandex.ru/get/6404/83739833.1c/0_92a25_e9eb12f9_XL.jpg)
+![](https://dan4i4ek.info/src/0_92a25_e9eb12f9_XL.jpg)
 
 ## a\) Веб-сервер
 
@@ -194,7 +194,7 @@ msk-arbat-gw1(config-subif)# ip nat inside
 ```
 
 А теперь:  
-![](http://img-fotki.yandex.ru/get/5800/83739833.1b/0_903a3_e496e973_XL.jpg)
+![](https://dan4i4ek.info/src/0_903a3_e496e973_XL.jpg)
 
 ## б\) Файловый сервер
 
@@ -204,7 +204,7 @@ msk-arbat-gw1(config)# ip nat inside source static tcp 172.16.0.3 21 198.51.100.
 ```
 
 Вот для этого в ACL Servers-out мы открывали также и 20-21-й порты для всех  
-![](http://img-fotki.yandex.ru/get/5107/83739833.1b/0_903a4_58024cf3_XL.jpg)
+![](https://dan4i4ek.info/src/0_903a4_58024cf3_XL.jpg)
 
 ## в\) Почтовый сервер
 
@@ -215,22 +215,22 @@ msk-arbat-gw1(config)# ip nat inside source static tcp 172.16.0.4 110 198.51.100
 
 Проверить также не сложно. Следуйте инструкциям:  
 Сначала настраиваем почтовый сервер. Указываем домен и создаём двух пользователей.  
-![](http://img-fotki.yandex.ru/get/6114/83739833.1b/0_90394_533d8271_XL.jpg)
+![](https://dan4i4ek.info/src/0_90394_533d8271_XL.jpg)
 
 Далее вносим домен в DNS. Этот шаг необязательный — можно к серверу обращаться и по IP, но почему бы и нет?  
-![](http://img-fotki.yandex.ru/get/6114/83739833.1b/0_90395_5ef2108b_XL.jpg)
+![](https://dan4i4ek.info/src/0_90395_5ef2108b_XL.jpg)
 
 Настраиваем компьютер из нашей сети:  
-![](http://img-fotki.yandex.ru/get/6314/83739833.1b/0_90396_893fd384_XL.jpg)
+![](https://dan4i4ek.info/src/0_90396_893fd384_XL.jpg)
 
 Из внешней:  
-![](http://img-fotki.yandex.ru/get/6214/83739833.1b/0_90397_cd1326d0_XL.jpg)
+![](https://dan4i4ek.info/src/0_90397_cd1326d0_XL.jpg)
 
 Готовим письмо:  
-![](http://img-fotki.yandex.ru/get/5107/83739833.1b/0_903af_2834243a_XL.jpg)
+![](https://dan4i4ek.info/src/0_903af_2834243a_XL.jpg)
 
 На локальном хосте нажимаем Receive:  
-![](http://img-fotki.yandex.ru/get/6313/83739833.1b/0_90399_8b7287b6_XL.jpg)
+![](https://dan4i4ek.info/src/0_90399_8b7287b6_XL.jpg)
 
 ## 8\) Доступ по RDP к компьютерам админа и нашему
 

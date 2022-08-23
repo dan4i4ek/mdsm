@@ -1,6 +1,6 @@
 # Задача 9
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача №9**](https://linkmeup.ru/blog/68.html)
+[![](https://dan4i4ek.info/src/68.html)
 
 [Схема и конфигурация](https://docs.google.com/document/d/1bH7FdkcQ4HYRDYKph5qp0mC_xBbMnlPL1ETlTxB2s_E/pub). Маршрутизаторы провайдеров также не используют BGP.
 

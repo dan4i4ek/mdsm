@@ -1,6 +1,6 @@
 # Задача 6
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача №6**](https://linkmeup.ru/blog/60.html)
+[![](https://dan4i4ek.info/src/60.html)
 
 Схема: Общая схема сети  
 Условие: ЛинкМиАп получает Full View от обоих провайдеров.

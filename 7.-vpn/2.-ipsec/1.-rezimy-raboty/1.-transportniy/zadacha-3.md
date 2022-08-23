@@ -1,6 +1,6 @@
 # Задача 3
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача №3**](https://linkmeup.ru/blog/42.html)
+[![](https://dan4i4ek.info/src/42.html)
 
 Схема: «итоговая схема задачи 7.1»  
 Конфигурации устройств: на сайте проекта

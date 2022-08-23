@@ -1,10 +1,10 @@
 # Задача 2
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача № 2**](https://linkmeup.ru/blog/131.html)  
+[![](https://dan4i4ek.info/src/131.html)  
    
 [Схема и начальная конфигурация](https://docs.google.com/document/d/1Dwi4wO6B_VGhxapE4dqfBacT4_N3tNRU-Q9JFoiaEj0/pub).  
    
-![](http://img-fotki.yandex.ru/get/9820/83739833.37/0_da30b_7fe598c3_XXL.png)  
+![](https://dan4i4ek.info/src/0_da30b_7fe598c3_XXL.png)  
    
 **Замечание к топологии**: в этой задаче только маршрутизаторы R1, R2, R3 находятся под управлением администраторов нашей сети. То есть, конфигурацию изменять можно только на них.  
    

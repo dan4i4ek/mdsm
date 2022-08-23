@@ -1,6 +1,6 @@
 # Задача 6
 
-[![](http://img-fotki.yandex.ru/get/6622/83739833.1f/0_9e219_a466f149_S.jpg)**Задача №6**](https://linkmeup.ru/blog/48.html)
+[![](https://dan4i4ek.info/src/48.html)
 
 Начальная конфигурация: [«DMVPN»](https://docs.google.com/document/d/1HApl7vsNqz4lLIrBG0vbL6osO85GiT-vMRh3K-8SYoE/pub)
 

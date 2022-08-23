@@ -54,7 +54,7 @@ msk-rubl-asw1(config-if)#switchport access vlan 101
 
 Если вы всё настроили правильно \(в чём не приходится сомневаться\), то с первого порта msk-rubl-asw1 вы увидите компьютеры ПТО, подключённые к msk-arbat-asw3.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_7f9ae_c95dc776_XL.jpg)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f9ae_c95dc776_XL.jpg)
 
 Для уверенности проверим ещё и 104-й влан. Через транк мы его сюда уже доставили.
 
@@ -66,5 +66,5 @@ msk-rubl-asw1(config-if)#switchport access vlan 104
 
 Подключаем компьютер к 16-му порт и настраиваем на нём IP-адрес 172.16.6.3 с маской 255.255.255.0 и шлюзом 172.16.6.1. А IP-адрес ноутбука на арбате поменяйте на 172.16.6.2 с теми же маской и шлюзом.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_7f9af_f9f2e823_XL.jpg)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_7f9af_f9f2e823_XL.jpg)
 

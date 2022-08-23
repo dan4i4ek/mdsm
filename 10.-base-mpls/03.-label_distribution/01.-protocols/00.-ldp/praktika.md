@@ -2,7 +2,7 @@
 
 Останемся верными сети linkmeup.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5e7_94e2cc0b_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5e7_94e2cc0b_orig.png)
 
 Запущен OSPF, маршрутизаторы видят Loopback'и друг друга, MPLS выключен.
 
@@ -42,7 +42,7 @@ R1(config-if)#mpls ip
 Cisco здесь опять использует свой принцип ленивого инженера — минимум усилий со стороны персонала. Команда **mpls ip** включает на интерфейсе LDP одновременно с MPLS, желаем мы этого или нет. Точно так же команда **ip pim sparse-mode** включает IGMP на интерфейсе, как я описывал это в статье про [мультикаст](http://linkmeup.ru/blog/129.html).  
 После активации LDP маршрутизатор начинает прощупывать почву по UDP:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd8a1_d44e698e_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd8a1_d44e698e_orig.png)
 
 Проверяки посылаются на мультикастовый адрес 224.0.0.2.
 
@@ -61,23 +61,23 @@ R2(config-if)#mpls ip
 и наслаждаемся результатом.  
 R2 тоже ищет соседей.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5ef_68ebfcf3_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5ef_68ebfcf3_orig.png)
 
 Узнали друг про друга, и R2 поднимает LDP-сессию:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5f0_2277f163_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5f0_2277f163_orig.png)
 
 Если интересно, как они устанавливают TCP-соединение:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd606_9e996bf4_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd606_9e996bf4_orig.png)
 
 Теперь они соседи, что легко проверяется командой **show mpls ldp neighbor**.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd603_237ee320_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd603_237ee320_orig.png)
 
 И далее один другому рассказывает о своих соответствиях FEC-метка:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5f5_a2e900a2_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5f5_a2e900a2_orig.png)
 
 > Вот тут уже видно детали — R1 передаёт сразу 12 FEC — по одной для каждой записи в своей таблице маршрутизации. В такой же ситуации Huawei или Juniper передали бы только шесть FEC — адреса Loopback-интерфейсов, потому что они по умолчанию считают за FEC только /32-префиксы.  
 > В этом плане Cisco очень неэкономно относится к ресурсу меток.  
@@ -89,7 +89,7 @@ R2 тоже ищет соседей.
 >   
 > Для того чтобы добраться до других сетей внутри нашей AS, нам достаточно IGP.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5f6_e9991ea6_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5f6_e9991ea6_orig.png)
 
 Итак, **R1** сообщает R2, что если тот хочет отправлять трафик для **FEC 3.3.3.3**, он должен использовать метку **17**.
 
@@ -97,11 +97,11 @@ R2 тоже ищет соседей.
 А то, что не было явного запроса от R2 на данный FEC, говорит о том, что режим — Downstrean unsolicited.  
 Далее узлы будут продолжать мониторить новых соседей с помощью LDP Hello поверх UDP и обмениваться LDP Keepalive уже адресно:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5f1_b4c7e321_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5f1_b4c7e321_orig.png)
 
 Теперь с помощью команды **show mpls forwarding-table** можно посмотреть, какие метки назначились для каждого FEC:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd605_b73e078d_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd605_b73e078d_orig.png)
 
 На второй строчке уже рассмотренный FEC 3.3.3.3, и мы видим, что для него локальная метка — 17, то есть R1 всем будет говорить, что для FEC 3.3.3.3 метка 17, что и было в дампе.  
 А вот outgoing tag или выходная метка — Untagged — это означает что пакеты пересылаются **чистым** IP \(без каких-либо оговорок на стек\). Причём Untagged означает, что между R1 и R3 вообще никакого MPLS нет — правильно: мы же его не включили на R3.  
@@ -111,7 +111,7 @@ R2 тоже ищет соседей.
 
 На этот вопрос нам поможет ответить дамп трафика между R2 и R1:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5f7_276476f2_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5f7_276476f2_orig.png)
 
 И тут всплывает та самая метка 3 — implicit-null. Таким образом R2 сообщает, что R1 при передаче пакета MPLS должен снять верхнюю метку.  
 Хочу здесь повториться — R1 не передаст пакет с меткой 3 на R2 — он передаст его без верхней метки. В нашем случае это будет просто IP-пакет. А метка 3 никогда не появляется в заголовке MPLS.  
@@ -153,18 +153,18 @@ mpls ldp router-id Loopback0 force
 
 И после этого посмотрим повторно на таблицу коммутации MPLS на **R1**:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5fe_24c2de90_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5fe_24c2de90_orig.png)
 
 Для всех FEC уже появились метки.  
 Давайте пройдёмся по LSP от R1 до R6 и посмотрим как меняются метки по пути
 
 **R2:**
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5ff_76c77336_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5ff_76c77336_orig.png)
 
 **R5:**
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd600_c02cfea_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd600_c02cfea_orig.png)
 
 Значит  
 1. Когда **R1** получает пакет MPLS с меткой **21**, он должен передать его в интерфейс **Fa0/0** и поменять метку на **18**.  
@@ -176,7 +176,7 @@ mpls ldp router-id Loopback0 force
 Таблица коммутации, которую мы уже смотрели командой **show mpls forwarding table** — это **LFIB** \(**Lable Forwarding Information Base**\) — почти что прописная истина для передачи данных — это Data Plane. Но что же там с Control Plane? Вряд ли LDP знает столько же? Наверняка у него ещё есть козыри в рукаве?  
 Так и есть:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd602_ba8014a_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd602_ba8014a_orig.png)
 
 Для каждого FEC мы тут видим информацию о различных метках:  
 local binding — что этот LSR передаёт соседям  
@@ -198,12 +198,12 @@ remote binding — что этот LSR получил от соседей.
 
 Есть ещё команда **show mpls ip binding**. Она показывает нечто похожее и позволяет кроме того быстро узнать, какой путь сейчас активен, то есть как построен LSP:
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd601_ffd5c0da_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd601_ffd5c0da_orig.png)
 
 И последний, пожалуй, вопрос, который возникает в связи со всеми этими LSP — когда маршрутизатор сам является Ingress LSR, как он понимает, что нужно делать с пакетами, как выбрать LSP?  
 А для этого вот и придётся заглянуть в IP CEF. Вообще именно на Ingress LSR ложится всё бремя обработки пакета, определения FEC и назначения правильных меток.
 
-![](https://github.com/dan4i4ek/mdsm/blob/master/src/0_fd5fc_fe25908f_orig.png)
+![](https://raw.githubusercontent.com/dan4i4ek/mdsm/master/src/0_fd5fc_fe25908f_orig.png)
 
 Тут вам и Next Hop и выходной интерфейс и выходная метка
 
